@@ -6,6 +6,9 @@ packages:
     Beagle:
         url: https://github.com/ZupIT/beagle-ios.git
         from: "2.1.0"
+    SnapshotTesting:
+        url: https://github.com/pointfreeco/swift-snapshot-testing.git
+        from: "1.10.0"
 targets:
     BeagleApp:
         type: application
@@ -26,10 +29,14 @@ targets:
         type: bundle.unit-test
         platform: iOS
         deploymentTarget: "13.0"
-        sources: [AppTests]
+        sources:
+            - path: AppTests
+              excludes:
+                - ReferenceImages/**
         settings:
             base:
                 INFOPLIST_FILE: AppTests/Info.plist
         dependencies:
             - target: BeagleApp
             - package: ViewInspector
+            - package: SnapshotTesting
