@@ -1,0 +1,35 @@
+name: BeagleApp
+packages:
+    ViewInspector:
+        url: https://github.com/nalexn/ViewInspector
+        from: "0.9.2"
+    Beagle:
+        url: https://github.com/ZupIT/beagle-ios.git
+        from: "2.1.0"
+targets:
+    BeagleApp:
+        type: application
+        platform: iOS
+        deploymentTarget: "13.0"
+        sources: [App]
+        settings:
+            base:
+                INFOPLIST_FILE: App/Info.plist
+                ENTITLEMENTS_FILE: App/App.entitlements
+                PRODUCT_BUNDLE_IDENTIFIER: com.codename.ios.app
+        scheme:
+            testTargets:
+                - BeagleAppTests
+        dependencies:
+            - package: Beagle
+    BeagleAppTests:
+        type: bundle.unit-test
+        platform: iOS
+        deploymentTarget: "13.0"
+        sources: [AppTests]
+        settings:
+            base:
+                INFOPLIST_FILE: AppTests/Info.plist
+        dependencies:
+            - target: BeagleApp
+            - package: ViewInspector
