@@ -39,13 +39,12 @@ extension BeagleConfig: ImageDownloaderProtocol {
         guard let imageURL = URL(string: url) else { return nil }
         
         let dataTask = URLSession.shared.dataTask(with: URLRequest(url: imageURL)) { data, _, error in
-            if let error = error {
-                completion(.failure(.decoding(error)))
-            }
-            
-            guard let data = data else { return }
-            
             DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(.decoding(error)))
+                }
+                
+                guard let data = data else { return }
                 completion(.success(data))
             }
         }

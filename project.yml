@@ -2,13 +2,13 @@ name: BeagleApp
 packages:
     ViewInspector:
         url: https://github.com/nalexn/ViewInspector
-        from: "0.9.2"
+        version: "0.9.1"
     Beagle:
         url: https://github.com/ZupIT/beagle-ios.git
-        from: "2.1.0"
+        version: "2.1.0"
     SnapshotTesting:
         url: https://github.com/pointfreeco/swift-snapshot-testing.git
-        from: "1.10.0"
+        version: "1.10.0"
 targets:
     BeagleApp:
         type: application
