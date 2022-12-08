@@ -23,6 +23,7 @@ targets:
         scheme:
             testTargets:
                 - BeagleAppTests
+            gatherCoverageData: true
         dependencies:
             - package: Beagle
     BeagleAppTests:
