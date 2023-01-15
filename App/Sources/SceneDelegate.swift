@@ -11,11 +11,7 @@ import SwiftUI
 class SceneDelegate: UIResponder, UISceneDelegate {
     var window: UIWindow?
     
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        // Init Beagle for current project
-        BeagleConfig().config()
-        
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {        
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: RootScene())
