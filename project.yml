@@ -1,4 +1,4 @@
-name: BasicApp
+name: BeagleApp
 packages:
     ViewInspector:
         url: https://github.com/nalexn/ViewInspector
@@ -6,11 +6,11 @@ packages:
     SnapshotTesting:
         url: https://github.com/pointfreeco/swift-snapshot-testing.git
         version: "1.10.0"
-    SwiftSoup:
-        url: https://github.com/scinfu/SwiftSoup.git
-        version: "2.5.3"
+    Beagle:
+        url: https://github.com/ZupIT/beagle-ios.git
+        version: "2.1.1"
 targets:
-    BasicApp:
+    BeagleApp:
         type: application
         platform: iOS
         deploymentTarget: "13.0"
@@ -19,14 +19,14 @@ targets:
             base:
                 INFOPLIST_FILE: App/Info.plist
                 ENTITLEMENTS_FILE: App/App.entitlements
-                PRODUCT_BUNDLE_IDENTIFIER: com.codename.ios.app
+                PRODUCT_BUNDLE_IDENTIFIER: com.codename.ios.beagle.app
         scheme:
             testTargets:
-                - BasicAppTests
+                - BeagleAppTests
             gatherCoverageData: true
         dependencies:
-            - package: SwiftSoup
-    BasicAppTests:
+            - package: Beagle
+    BeagleAppTests:
         type: bundle.unit-test
         platform: iOS
         deploymentTarget: "13.0"
@@ -38,6 +38,6 @@ targets:
             base:
                 INFOPLIST_FILE: AppTests/Info.plist
         dependencies:
-            - target: BasicApp
+            - target: BeagleApp
             - package: ViewInspector
             - package: SnapshotTesting
