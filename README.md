@@ -2,7 +2,7 @@
 
 A simple and easy understanding structural iOS project using server driven with Beagle, intended to be used as a template for starter Swift projects.
 
-<img width="1582" alt="Xnapper-2023-02-06-22 23 06" src="https://user-images.githubusercontent.com/11509104/217124281-772de63f-7a07-4aa7-be09-07f56264fe44.png">
+<img width="1422" alt="image" src="https://user-images.githubusercontent.com/11509104/217132334-82359899-f3a7-460a-ba0a-a2310f33e04b.png">
 
 ## Pre-requisites
 
