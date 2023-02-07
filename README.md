@@ -2,6 +2,8 @@
 
 A simple and easy understanding structural iOS project using server driven with Beagle, intended to be used as a template for starter Swift projects.
 
+<img width="1582" alt="Xnapper-2023-02-06-22 23 06" src="https://user-images.githubusercontent.com/11509104/217124281-772de63f-7a07-4aa7-be09-07f56264fe44.png">
+
 ## Pre-requisites
 
 To start using this project as template you need at least this three pre-requisites in your macOS machine:
@@ -22,19 +24,19 @@ To start using this project as template you need at least this three pre-requisi
 Obs: the final results expected for the file would be...
 
 ``` yml
-name: MyIOSApp
+name: BeagleApp
 packages:
     ViewInspector:
         url: https://github.com/nalexn/ViewInspector
-        from: "0.9.2"
-    Beagle:
-        url: https://github.com/ZupIT/beagle-ios.git
-        from: "2.1.0"
+        version: "0.9.1"
     SnapshotTesting:
         url: https://github.com/pointfreeco/swift-snapshot-testing.git
-        from: "1.10.0"
+        version: "1.10.0"
+    Beagle:
+        url: https://github.com/ZupIT/beagle-ios.git
+        version: "2.1.1"
 targets:
-    MyIOSApp:
+    BeagleApp:
         type: application
         platform: iOS
         deploymentTarget: "13.0"
@@ -43,13 +45,14 @@ targets:
             base:
                 INFOPLIST_FILE: App/Info.plist
                 ENTITLEMENTS_FILE: App/App.entitlements
-                PRODUCT_BUNDLE_IDENTIFIER: com.codename.ios.app
+                PRODUCT_BUNDLE_IDENTIFIER: com.codename.ios.beagle.app
         scheme:
             testTargets:
-                - MyIOSAppTests
+                - BeagleAppTests
+            gatherCoverageData: true
         dependencies:
             - package: Beagle
-    MyIOSAppTests:
+    BeagleAppTests:
         type: bundle.unit-test
         platform: iOS
         deploymentTarget: "13.0"
@@ -61,7 +64,7 @@ targets:
             base:
                 INFOPLIST_FILE: AppTests/Info.plist
         dependencies:
-            - target: MyIOSApp
+            - target: BeagleApp
             - package: ViewInspector
             - package: SnapshotTesting
 ```
