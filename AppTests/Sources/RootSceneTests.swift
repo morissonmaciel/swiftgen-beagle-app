@@ -34,8 +34,19 @@ final class RootSceneTests: XCTestCase {
     }
     
     func testRootSceneSnapshot() {
-        let vc = UIHostingController(rootView: RootScene())
-        let error = verifySnapshot(matching: vc, as: .image, snapshotDirectory: self.snapshotDirectory)
-        XCTAssertNil(error)
+        let sut = RootScene()
+        let view = try? sut.inspect().view(BeagleApp.BeagleWrappedView.self).actualView()
+        let vc = UIHostingController(rootView: view)
+
+        let expectation = expectation(description: "Async beagle view load")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { _ in
+            let error = verifySnapshot(matching: vc, as: .image(on: .iPhone8), snapshotDirectory: self.snapshotDirectory)
+            XCTAssertNil(error)
+        }
     }
 }

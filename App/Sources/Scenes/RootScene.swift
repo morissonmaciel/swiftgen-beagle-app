@@ -9,10 +9,8 @@ import SwiftUI
 
 struct RootScene: View {
     var body: some View {
-        HStack {
-            BeagleLocalView(
-                contents: getContents(file: "BeagleSample"))
-        }
+        BeagleLocalView(
+            contents: getContents(file: "BeagleSample"))
     }
 }
 
